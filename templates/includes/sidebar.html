@@ -49,6 +49,25 @@
                         </li>
                 {% endfor %}
             {% endif %}
+
+            {% if DISPLAY_PAGES_ON_SIDEBAR %}
+                <li class="list-group-item"><a href="{{ SITEURL }}/{{ TAGS_URL }}"><h4><i class="fa fa-archive fa-lg"></i>Pages</h4></a></li>
+                    {% for p in PAGES %}
+                         <li class="list-group-item{% if p == page %} active{% endif %}"><a href="{{ SITEURL }}/{{ p.url }}">
+                             {{ p.title }}
+                          </a></li>
+                      {% endfor %}
+	    {% endif %}
+
+            {% if DISPLAY_LINKS_ON_SIDEBAR %}
+                <li class="list-group-item"><a href="{{ SITEURL }}/{{ TAGS_URL }}"><h4><i class="fa fa-external-link fa-lg"></i>Links</h4></a></li>
+                    {% for title, url in LINKS %}
+                         <li class="list-group-item"><a href="{{ url }}">
+                             {{ title }}
+                          </a></li>
+                      {% endfor %}
+	    {% endif %}
+
         </ul>
     </section>
     {% include 'includes/github.html' %}
