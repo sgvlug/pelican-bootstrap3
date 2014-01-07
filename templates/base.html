@@ -85,6 +85,9 @@
             <a href="{{ SITEURL }}" class="navbar-brand">{{ SITENAME }}</a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
+            {% if SITESUBTITLE %}
+                <div class="navbar-brand hidden-xs">{{ SITESUBTITLE }}</div>
+            {% endif %}
             <ul class="nav navbar-nav">
                 {% for title, link in MENUITEMS %}
                     <li><a href="{{ link }}">{{ title }}</a></li>
