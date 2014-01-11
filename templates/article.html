@@ -15,6 +15,9 @@
             <div class="entry-content">
                 <div class="panel">
                     <div class="panel-body">
+                        {% if SHOW_EVENT_INFO %}
+                            {% include "includes/event_info.html" %}
+                        {% endif %}
                         {% include "includes/article_info.html" %}
                     </div>
                 </div>

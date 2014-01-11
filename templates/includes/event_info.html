@@ -1,0 +1,28 @@
+{#
+  This include should only be included if SHOW_EVENT_DATE is defined in the
+  config. It requires a custom filter that must also be defined in the 
+  config:
+
+      from pelican.utils import get_date, strftime
+      def format_date(value, date_format='%a %d %B %Y'):
+          return strftime(get_date(value), date_format)
+      
+      JINJA_FILTERS = { 'format_date': format_date, }
+
+#}
+<footer class="event-info">
+    {% if article.event_date %}
+        <span class="label label-default">Event Date:</span>
+        <span class="event-date">
+            <i class="fa fa-calendar"></i><time datetime="{{ article.event_date }}">{{ article.event_date|format_date }}</time>
+        </span>
+        <p></p>
+    {% endif %}
+    {% if article.event_location %}
+        <span class="label label-default">Event Location:</span>
+        <span class="event-location">
+            <i class="fa fa-location-arrow"></i>{{ article.event_location }}
+        </span>
+        <p></p>
+    {% endif %}
+</footer><!-- /.event-info -->
