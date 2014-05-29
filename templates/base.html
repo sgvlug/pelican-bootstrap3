@@ -166,6 +166,12 @@
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
 <script src="{{ SITEURL }}/theme/js/respond.min.js"></script>
 
+<!-- ColorBox to make image display nicer -->
+<script src="{{ SITEURL }}/theme/js/jquery.colorbox-min.js"></script>
+<script>
+    $(".image-reference").colorbox({maxWidth: "80%", maxHeight: "80%"});
+</script>
+
 {% include 'includes/github-js.html' %}
 {% include 'includes/disqus_script.html' %}
 {% include 'includes/ga.html' %}
