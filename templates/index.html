@@ -7,6 +7,11 @@
                 {% if SHOW_EVENT_INFO %}
                     {% include "includes/event_info.html" %}
                 {% endif %}
+                {% if DISPLAY_ARTICLE_INFO_ON_INDEX %}
+                    <div class="well well-sm">
+                        {% include "includes/article_info.html" %}
+                    </div>
+                {% endif %}
                 <div class="summary">{{ article.summary }}
                     {% include 'includes/comment_count.html' %}
                     {% if SUMMARY_MAX_LENGTH %}
