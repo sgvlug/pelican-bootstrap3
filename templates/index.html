@@ -4,14 +4,14 @@
         {% for article in (articles_page.object_list if articles_page else articles) %}
             <article>
                 <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
-                {% if SHOW_EVENT_INFO %}
-                    {% include "includes/event_info.html" %}
-                {% endif %}
-                {% if DISPLAY_ARTICLE_INFO_ON_INDEX %}
-                    <div class="well well-sm">
+                <div class="post-info-block">
+                    {% if SHOW_EVENT_INFO %}
+                        {% include "includes/event_info.html" %}
+                    {% endif %}
+                    {% if DISPLAY_ARTICLE_INFO_ON_INDEX %}
                         {% include "includes/article_info.html" %}
-                    </div>
-                {% endif %}
+                    {% endif %}
+                </div>
                 <div class="summary">{{ article.summary }}
                     {% include 'includes/comment_count.html' %}
                     {% if SUMMARY_MAX_LENGTH %}

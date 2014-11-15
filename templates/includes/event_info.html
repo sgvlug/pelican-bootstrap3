@@ -10,19 +10,15 @@
       JINJA_FILTERS = { 'format_date': format_date, }
 
 #}
-<footer class="event-info">
-    {% if article.event_date %}
+{% if article.event_date %}
+    <div class="post-info">
         <span class="label label-default">Event Date:</span>
-        <span class="event-date">
-            <i class="fa fa-calendar"></i><time datetime="{{ article.event_date }}">{{ article.event_date|format_date }}</time>
-        </span>
-        <p></p>
-    {% endif %}
-    {% if article.event_location %}
+        <i class="fa fa-calendar"></i> <time datetime="{{ article.event_date }}">{{ article.event_date|format_date }}</time>
+    </div>
+{% endif %}
+{% if article.event_location %}
+    <div class="post-info">
         <span class="label label-default">Event Location:</span>
-        <span class="event-location">
-            <i class="fa fa-location-arrow"></i>{{ article.event_location }}
-        </span>
-        <p></p>
-    {% endif %}
-</footer><!-- /.event-info -->
+         <i class="fa fa-location-arrow"></i> {{ article.event_location }}
+    </div>
+{% endif %}
